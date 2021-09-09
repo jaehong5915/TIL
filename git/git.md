@@ -18,29 +18,32 @@
 
   `touch <텍스트파일명>`
 
-- **Commit 과정**
+## Commit 과정
 
-  ***git init (저장소 생성)>  untracked 상태 > git add > staging Area에 올리고 > git commit > committed 수정하면 다시 untracked > git add > staging Area > ...***
+- ***git init (저장소 생성)>  untracked 상태 > git add > staging Area에 올리고 > git commit > committed 수정하면 다시 untracked > git add > staging Area > ...***
 
 - **저장소 생성**
 
   `git init`
 
-### git add - git commit - git log
+- **commit**
 
-- ***git init (저장소 생성)>  untracked 상태 > git add > staging Area에 올리고 > git commit > committed***
-- ***수정하면 다시 untracked > git add > staging Area > ...***
+  `git add. > git commit -m "커밋메세지"`
 
-## 명령어
+- **push (깃허브 업로드)**
 
-- **저장소 생성 - git init**
-- **커밋 히스토리  - git log**
-- **깃 상태 - git status**  *현재 git으로 관리되고 있는 파일들의 상태를 알 수 있다.*
-- **커밋 - git commit -m "Init fils"** *-m :메세지  "커밋메세지 "*
+  `git push u(어디로) origin master(무엇을)`
+
+
+
+## git 명령어
+
+- **git log** > `커밋 히스토리`
+- **git status** > `현재 git으로 관리되고 있는 파일들의 상태를 알 수 있다.`
 - **git remote add origin(으로) remote_repo**
-- **git push -u origin(어디로) master(무엇을)** - *git hub 에 코드 업로드, local > remote*
 - **git clone{remote_repo(깃주소)) - git repository에 있는 저장소를 local로 복사 **
-- 빈 레포지터리 생성  - 클론 - 
+
+  `빈 레포지터리 생성  - 클론 - vs code로 폴더열기  ` 
 
 
 
