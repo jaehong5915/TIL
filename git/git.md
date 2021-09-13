@@ -105,3 +105,5 @@
 
 - git reset git rebase 
 
+d
+
