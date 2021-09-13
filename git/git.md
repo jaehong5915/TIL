@@ -42,6 +42,8 @@
 
 - **git log** > `커밋 히스토리`
 
+  `git log --graph --oneline`  > branch 변경 사항 
+
 - **git init** > `로컬 저장소`
 
 - **git status** > `현재 git으로 관리되고 있는 파일들의 상태를 알 수 있다.`
@@ -81,9 +83,25 @@
 
    `git reset --hard {commit ID: 하나의 레포지토리이면 4자리}`
 
+- soft ? mixed? 
 
+- **git ignore**
 
+  `*.gitignore`
 
+  ***data.scv # 특정파일   secret/ # 특정 폴더    .png # 특정 확장자   !profile.png # 제외***
 
+### branch
 
+![브랜치](git.assets/branch.JPG)
+
+- `특정 commit을 가르키는 포인터`
+
+- `git checkout [branch ex)master]`
+
+- `git merge  [합칠 브런치] ` *※ 위치 - 최종 결과를 출력할 브런치에서*
+- **`clone`**   타인의 remote > local
+- **`fork`**     타인의 remote > 나의 remote  
+
+- git reset git rebase 
 
