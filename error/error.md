@@ -12,4 +12,4 @@
 
 - remote 에 있는 변경사항을 home 레포지토리로 반영
 
-`git pull origin master`
+`git pull origin master`1
