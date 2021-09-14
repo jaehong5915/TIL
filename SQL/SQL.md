@@ -101,3 +101,64 @@
 >
 >`DBA TO ` , `CREATE USER TO` ,
 
+
+
+
+
+## Self Join
+
+- `동일 테이블`사이의 조인 , 식별을 위해 별칭 사용
+- **`SELECT ALIAS1.칼럼명, ALIAS2.칼럼명.. `**
+- **`FROM 테이블1 ALIAS1, 테이블2 ALIAS WHERE 조건`**
+
+
+
+## 계층형 질의
+
+- **`계층형 질의 START WITH : 어디서부터 계층형 질의 시작할 것인지..`**
+
+- **`CONNECT BY  : 다음에 전개될 자식 데이터 저장, 조건 만족`**
+
+- **`PRIOR : CONNECT 절에 사용, 현재 읽은 칼럼 저장 / `**
+- **`부모 - PR(자식) > 부모~자식 순방향 / PR(부모) - 자식 > 역방향`**
+- **`CYCLE : 데이터 전개시 이미 나타났던 동일 데이터 다시 나타나는 경우`**
+
+- **`NOCYCLE : 사이클이 발생한 이후의 데이터는 전개하지 않는다.`**
+
+
+
+## PIVOT 절
+
+- **`행을 열로 전환, AGGREGATE_FUNCTION 집계 열 지정`**
+- **`FOR 절은 PIVOT할 열을 지정, IN 절은 PIVOT할 열 값을 지정`**
+
+- SELECT * FROM (SELECT JOB, SAL FROM EMP)
+
+  `PIVOT` (SUM (SAL) `FOR` DEPTNO `IN` (10, 20, 30))
+
+  ORDER BY 1;
+
+- ***인라인 뷰에 YYYY 표현식 추가***
+
+- > SELECT *
+  >   FROM  (SELECT TO_CHAR(HIREDATE, 'YYYY') AS YYYY, JOB, DEPTNO, SAL
+  >          FROM EMP)
+  >   PIVOT  (SUM(SAL) FOR DEPTNO IN (10, 20, 30))
+  > ORDER BY 1, 2;
+
+  
+
+## UNPIVOT 절
+
+- PIVOT절과 반대로 `열이 행으로 전환`된다.
+
+- **`INCLUDE NULLS`** > UNPIVOT INCLUDE NULLS ~ 열의 값이 NULL인 행도 결과에 포함.
+
+-  **`FOR 절에 다수의 열, IN절에 다수의 별칭 지정할 수 있다.`**
+
+  > SELECT   *
+  >   FROM T1
+  >  UNPIVOT ((SAL,CNT) 
+  >         `FOR DEPTNO` `IN `((D10_SAL, D10_CNT) AS 10 , (D20_SAL, D20_CNT) AS 20))
+  > ORDER BY 1, 2;
+
