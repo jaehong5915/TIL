@@ -61,7 +61,7 @@
 
 ---
 
-## 반복
+## 반복문
 - while
 ```javascript
     let i = 0;
@@ -78,3 +78,117 @@
         i ++;
     }while(i<10)
 ```
+- switch
+```javascript
+    switch(평가){
+        case A :
+            // 코드
+        case B :
+            // 코드
+    }
+```
+
+---
+
+## 함수
+- 화살표 함수는 자신만의 ***this***를 가지지 않음, 
+- 내부에서 ***this***를 사용하면, 외부(전역 객체, global)에서 값을 가져 옴
+```javascript
+    function sayHello(name){
+        console.log(`hello, ${name}`);
+    }
+    sayHello('Mike')
+    # 전역 변수와 지역 변수
+    let name = 'Mike';
+
+    function sayHello(name){
+        console.log(name);
+        # 매개 변수로 받은 값은 복사 된 후 함수의 지역 변수가 된다.
+    }
+    sayHello();  --> undefined
+    sayHello('jane'); --> jane
+    -------------------------------------------------
+    function say(name ='friend'){
+        // 디폴트 값
+    }
+    ==
+    function say(name){
+        let msg = name || 'friend'; // 디폴트 값
+    }
+```
+---
+
+## 객체
+- 접근: 객체.name, 객체['name']
+- 추가: 객체.name = , 객체['name'] = 
+- 삭제 delete 프로퍼티 / delete 객체.name;
+```javascript
+    # 단축 프로퍼티
+    const name = 'clark';
+    const age = 33
+    const student ={
+        name,
+        age,
+        gender: 'male'
+    }
+    # 존저하지 않는 프로퍼티 접근 -> undefined
+    'birthDay' in student -> false
+    'age' in student -> true
+    -------------------------------------------
+    # for.. in 반복문
+    ## for x in 객체 ==> X - name, age , ...
+    for(let key in student){
+        console.log(key);
+        console.log(student[key])
+    }
+
+    # 객체를 활용하여 20세 이상 접근
+    function isAdult(name){
+        if (name.age >= 20){
+            return true
+        }
+        return false
+    }
+    const Mike ={
+        age: 30,
+        name: 'Mike'
+    }
+```
+---
+# 메소드
+- 메소드의 ***this***는 해당 객체를 가르킴
+- 객체 메소드 작성시 화살표 함수 지양
+```javascript
+let boy = {
+    name : 'Mike',
+    showName:function(){
+        console.log(boy.name)
+    }
+};
+
+let man = boy;
+```
+
+---
+# 배열
+- let stu = ['a','b','c',...,'z']
+```javascript
+# 배열 메소드
+# push() 
+let day = ['월','화'];
+day.push('수')
+# pop() 
+# shift, unshift 배열 앞에 제거/ 추가
+let day = ['월','화'];
+day.unshift('일','수')
+day = [일,수,월,화]
+day.shift();
+day = [수,월,화]
+
+# for..of
+let days = [수,월,화]
+for(let day of days){
+    console.log(day) -> 수, 월, 화
+}
+```
+- stu.length / stu.push
