@@ -5,6 +5,21 @@
 
 ---
 ## 변수
+- 변수의 생성과정 : 선언 - 초기화 - 할당
+ - var : 선언 & 초기화 동시, 함수 스포크
+ - let : 따로, 블록 스코프
+ - const : 선언&초기화&할당 동시, 블록 스코프(블록안에서만 사용 가능)
+```javascript
+    if(true){
+        var a = '12345';
+    }
+    a -> 12345
+    if (true){
+        let a = '123';
+        const a = 10;
+    }
+    let, const => undefined
+```
 - 문자, 숫자, $, _ / 첫글자는 숫자 X 
 - let : 재정의 가능, 변하는 값
 - const : 재정의 불가능, 절대로 바뀌지 않는 상수, 대문자
@@ -192,3 +207,17 @@ for(let day of days){
 }
 ```
 - stu.length / stu.push
+
+---
+
+# 생성자 함수
+- 와플 틀, 와플 - > 첫 글자 대문자 관례 
+```javascript
+    function User(name, age){
+        // this = {}
+        this.name = name;
+        this.age = age;
+        // return this;
+    }
+    let user1 = new User('mike', 30);
+```
