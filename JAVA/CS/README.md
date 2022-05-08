@@ -71,3 +71,13 @@ class ExClassGeneric <T>{
 ExClassGeneric<String> ex = new ExClassGeneric<>(); 
 
 ```
+
+    - Springboot
+        - mybatis
+            - JDBC 복잡성 해결하며 개발자가 작성한 SQL 명령어와 객체 매핑
+            - SQL문을 xml 파일에 작성하여 변환이 자유롭고 가독성이 좋음
+            - 특정 DB에 종속, 많은 설계와 로직이 필요함
+        - JPA
+            - 객체와 RDB를 별개로 설계하고 중간에서 매핑
+            - SQL 직접 작성할 필요 없음 -> RDB에 종속되지 않음 - 직관적
+            - 코드 재활용이나 DB 변경에 용이함 
